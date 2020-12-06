@@ -3,7 +3,7 @@
 ## Setup
 
 ```sh
-git clone REPO_URL
+git clone https://github.com/CodingCreate101/The-Groceries-List-App.git
 
 npm install
 
