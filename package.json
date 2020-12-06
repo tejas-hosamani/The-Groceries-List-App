@@ -1,0 +1,17 @@
+{
+  "name": "the-groceries-list-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "http-server .",
+    "test": "cypress open",
+    "test:headless": "cypress run"
+  },
+  "author": "Tejas H",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.0.1",
+    "http-server": "^0.12.3"
+  }
+}

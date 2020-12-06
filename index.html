@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>The Groceries List App</title>
+  </head>
+  <body>
+    <noscript>JavaScript needs to be enabled.</noscript>
+
+    <div id="app">
+      <div id="getUserName">
+        <form onsubmit="submitUserName(); return false">
+          <label for="userNameValue">Enter your name:</label> <br />
+          <input type="text" id="userNameValue" />
+          <button class="button" type="submit">Login</button>
+        </form>
+      </div>
+
+      <div id="groceryList">
+        <h1>Grocery list:</h1>
+
+        <hr class="my-1" />
+
+        <form onsubmit="addGroceryItem(); return false">
+          <label for="groceryItemValue">Add new item:</label> <br />
+          <input type="text" id="groceryItemValue" />
+          <button class="button" type="submit" data-test-id="add-a-grocery-item-button">
+            <img src="./static/add.svg" alt="Add a grocery item" width="10px" />
+          </button>
+        </form>
+
+        Remaining item(s): <span id="remainingItems">5</span>/5 <br />
+
+        <hr class="my-1" />
+
+        <div id="listItems">No item</div>
+
+        <hr class="my-1" />
+
+        <a class="button logout" onClick="resetUser()">Logout</a>
+      </div>
+
+      <div id="notification"></div>
+    </div>
+    <script src="./utilities.js"></script>
+    <script src="./component/user.js"></script>
+    <script src="./component/grocery.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
