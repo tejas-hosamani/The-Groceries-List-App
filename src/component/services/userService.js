@@ -1,4 +1,10 @@
-function resetUser() {
+import { _, updateLocalStorage } from '../utilities.js';
+import { state } from '../data/appState.js';
+import { setLocalStorage } from '../data/localStorage.js';
+import { displayView, showNotification } from '../view/index.js';
+import { appInit } from './index.js';
+
+export function resetUser() {
   state.userName = '';
   displayView('userNameView');
   setLocalStorage('currentUser', '');
@@ -6,7 +12,7 @@ function resetUser() {
   showNotification('success', 'Logged out', _('userNameValue'));
 }
 
-function submitUserName() {
+export function submitUserName() {
   state.userName = _('userNameValue').value;
   if (state.userName === '') {
     showNotification('error', 'Please enter your name', _('userNameValue'));
