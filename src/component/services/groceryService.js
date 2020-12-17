@@ -1,4 +1,10 @@
-function addGroceryItem() {
+import { _, updateLocalStorage } from '../utilities.js';
+import { state } from '../data/appState.js';
+import { setLocalStorage } from '../data/localStorage.js';
+import { renderListItems } from '../view/groceryViews.js';
+import { showNotification } from '../view/index.js';
+
+export function addGroceryItem() {
   const groceryItemValue = _('groceryItemValue').value;
   if (groceryItemValue === '') {
     showNotification('error', 'Please add an item name', _('groceryItemValue'));
@@ -29,30 +35,7 @@ function addGroceryItem() {
   renderListItems();
 }
 
-function renderListItems() {
-  let buildList = 'There are no items in your list';
-  if (
-    state.completeList.hasOwnProperty(state.userName) &&
-    state.completeList[state.userName].length
-  ) {
-    buildList = '<ol>';
-    state.completeList[state.userName].map(item => {
-      buildList += `
-        <li id="${item}">
-          <span class="listItem">${item}</span>
-          <a class="button" onClick="editItem('${item}')">Edit</a>
-          <a class="button" onClick="deleteItem('${item}')">Delete</a>
-        </li>
-      `;
-    });
-    buildList += '</ol>';
-  }
-
-  listItemsView.innerHTML = buildList;
-  renderRemainingItemsView();
-}
-
-function editItem(item) {
+export function editItem(item) {
   renderListItems();
   const listItem = _(item);
   listItem.innerHTML = `
@@ -62,11 +45,11 @@ function editItem(item) {
   `;
 }
 
-function cancelSave() {
+export function cancelSave() {
   renderListItems();
 }
 
-function saveItem(item) {
+export function saveItem(item) {
   const updatedItemValue = _(item + '-input').value;
 
   console.log(item, updatedItemValue);
@@ -92,7 +75,7 @@ function saveItem(item) {
   showNotification('success', `Updated item`, _('groceryItemValue'));
 }
 
-function deleteItem(item) {
+export function deleteItem(item) {
   if (confirm('Are you sure?')) {
     const temp = state.completeList[state.userName].filter(oldItem => oldItem !== item);
     state.completeList[state.userName] = temp;
@@ -100,10 +83,4 @@ function deleteItem(item) {
     renderListItems();
     showNotification('success', `'${item}' deleted`, _('groceryItemValue'));
   }
-}
-
-function renderRemainingItemsView() {
-  remainingItemsView.innerText = Array.isArray(state.completeList[state.userName])
-    ? 5 - state.completeList[state.userName].length
-    : 5;
 }

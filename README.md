@@ -11,6 +11,8 @@ npm start # open http://localhost:8080
 
 # Run this on a different terminal window
 npm test
+
+npm run build
 ```
 
 ## Project tracking (on Trello):

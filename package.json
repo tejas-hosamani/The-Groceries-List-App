@@ -2,16 +2,23 @@
   "name": "the-groceries-list-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "private": true,
   "scripts": {
-    "start": "http-server .",
+    "start": "http-server ./dist",
     "test": "cypress open",
-    "test:headless": "cypress run"
+    "test:headless": "cypress run",
+    "build": "webpack"
   },
   "author": "Tejas H",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "babel-loader": "^8.2.2",
     "cypress": "^6.0.1",
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-plugin-serve": "^1.2.1"
   }
 }
