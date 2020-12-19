@@ -73,7 +73,8 @@ body {
   background: #0f05;
 }
 
-input[type='text'] {
+#userNameValue,
+#groceryItemValue {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
