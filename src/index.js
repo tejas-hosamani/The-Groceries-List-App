@@ -1,14 +1,15 @@
-import { _ } from './component/utilities.js';
+import { _ } from './utilities.js';
 
-import { submitUserName, resetUser } from './component/services/userService.js';
+import { submitUserName, resetUser } from './services/userService.js';
 import {
   addGroceryItem,
   cancelSave,
   deleteItem,
   editItem,
   saveItem,
-} from './component/services/groceryService.js';
-import { appInit } from './component/services/index.js';
+} from './services/groceryService.js';
+import { appInit } from './services/index.js';
+import './scss/style.scss';
 
 window.submitUserName = submitUserName;
 window.addGroceryItem = addGroceryItem;
